@@ -1,11 +1,14 @@
 const { DynamoDB } = require('aws-sdk');
 const dynamodb = new DynamoDB();
 
-exports.handler = async ({ id, input, output }) => {
+exports.handler = async ({ id, functionName, input, output }) => {
     const params = {
         Item: {
             'requestId': {
                 S: id,
+            },
+            'functionName':{
+                S: functionName
             },
             'input': {
                 S: JSON.stringify(input)
