@@ -8,7 +8,7 @@ exports.handler = async ({ id, url, functionName, input, output }) => {
                 S: id,
             },
             'url': {
-                S: url,
+                S: url || '',
             },
             'functionName':{
                 S: functionName
